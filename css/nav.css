@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* berlaku buat semua element di html */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Roboto',sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: all .2s ease-out; 
+    text-decoration: none;
+    color: var(--text);
+    /* border: .5px solid red; */
+}
+:root {
+    --bg : #DDE6ED;
+    --s-light : #F1F6F9;
+    --light-dark : #9DB2BF;
+    --dark : #526D82;
+    --darker : #27374D;
+    --text : #0F1035;
+    --blue : #435585;
+    /* font-size */
+    --big :3rem;
+    --medium : 1.8rem;
+    --small :1.4rem;
+    --smaller :1rem;
+    /* etc */
+    --border: .1rem solid rgba(0,0,0,.1); 
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    --tes : 1px solid red;
+}
+header {
+    height: 15%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+    background-color: var(--s-light);
+    font-weight: bold;
+    border-bottom: 3px solid var(--darker);
+
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+.kiri {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.kiri .nama-1 {
+    border: 3px solid var(--darker);
+    font-size: var(--medium);
+}
+.kiri .nama-2 {
+    text-decoration: underline;
+}
+.kiri p, .kiri .nama-2 {
+    font-size: var(--small);
+}
+.logo {
+    height: 3.3rem; width: fit-content;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+.nav-bar {
+    width: 40%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-but{  
+    color: var(--text);
+    font-weight: 800;
+    font-size: var(--smaller);
+}
+.nav-but:hover {
+    color: rgb(11, 11, 173);
+    transform: scale(1.1);
+}
+.info-button {
+    background-color: rgba(0, 0, 0, 0.813);
+    color: var(--s-light);
+    font-size: var(--smaller);
+    border: none;   
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    transition: all 1s ease;
+    font-weight: 500;
+}
+.info-button:hover {
+    border-radius: 1rem;
+    background-image: linear-gradient(
+  40deg,
+  hsl(203deg 21% 68%) 0%,
+  hsl(204deg 20% 61%) 9%,
+  hsl(205deg 19% 53%) 18%,
+  hsl(206deg 20% 46%) 28%,
+  hsl(207deg 23% 40%) 37%,
+  hsl(209deg 26% 34%) 46%,
+  hsl(212deg 29% 29%) 55%,
+  hsl(214deg 32% 24%) 65%,
+  hsl(216deg 33% 26%) 74%,
+  hsl(219deg 33% 30%) 83%,
+  hsl(221deg 33% 35%) 91%,
+  hsl(224deg 33% 39%) 100%
+);
+    color: var(--s-light);
+    transform: translateX(8px);
+}
+
+/* menu toggle */
+.menu-toggle {
+    position: relative;
+    height: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    background-color: var(--text);
+    border-radius: 5px;
+}
+.menu-toggle input{
+    position: absolute;
+    width: 34px;
+    height: 28px;
+    left: -3px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* hamburger menu */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+.menu-toggle input:checked ~ span:nth-child(2) {
+    transform : rotate(45deg) translate(1px, 1px);
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg) translate(0, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0) ;
+    opacity: 0;
+}
+
+@media screen and (max-width : 768px){
+    .nav-bar {
+        width: 60%;
+    }
+}
+@media screen and (max-width : 576px){
+    .nav-bar {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        width: 50vw;
+        height: 80vh;
+        padding-top: 10vh;
+        border-radius: 0 0 0 20px;
+
+        background-color: #f1f6f9c7;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        transform: translateX(100%);
+        transition: all 1s;
+    }
+    .nav-bar.slide {
+        transform: translateX(0);
+    }
+    .menu-toggle {
+        display: flex;
+    }
+}

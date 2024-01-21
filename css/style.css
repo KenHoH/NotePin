@@ -1,0 +1,241 @@
+/* Option 2: Import via CSS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+:root {
+    --bg : #DDE6ED;
+    --s-light : #F1F6F9;
+    --light-dark : #9DB2BF;
+    --dark : #526D82;
+    --darker : #27374D;
+    --text : #0F1035;
+    --blue : #435585;
+    /* font-size */
+    --big :3rem;
+    --medium : 1.8rem;
+    --small :1.4rem;
+    --smaller :1rem;
+    /* etc */
+    --border: .1rem solid rgba(0,0,0,.1); 
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    --tes : 1px solid red;
+}
+.h1 {
+    font-size: var(--big);
+    font-weight: 800;
+}
+.medium {
+    font-size: 2rem;
+    font-weight: 600;
+}
+.norm {
+    font-size: var(--smaller);
+}
+body {
+    height: auto;
+    overflow-x: hidden;
+    background-color: var(--bg);
+}
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+body::-webkit-scrollbar-track{
+    background-color: var(--light-dark);
+}
+body::-webkit-scrollbar-thumb{
+    background-color: var(--dark);
+}
+.container {
+    padding: 10vh 0;
+    width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+}
+.section1 {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid var(--darker);
+}
+.section1::before {
+    content: "";
+    background: url("../images/anime-school-background.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.8;   
+}
+.opening {
+    padding: 40px;
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.opening::before{
+    content: "";
+    background-color: #f1f6f9;
+    position: absolute;
+    border-radius: 10px;
+    top: 0; left: 0; bottom: 0; right: 0;
+    opacity: 0.5;
+}
+.opening h1, .opening p {
+    position: relative;
+}
+.opening p {
+    width: 80%; 
+    text-align: center;
+}
+.section2 {
+    width: 80%;
+    height: 60vh;
+    padding: 0;
+    margin: 20vh auto;
+    background-color: var(--s-light);
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.title {
+    text-align: center;
+}
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: var(--text);
+    background-color: var(--s-light);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    transform: translate(0px 0px);
+    transition: all .5s ease-out;
+}
+.card:hover{
+    box-shadow: -10px 10px  #000000;
+    transform: translate(10px, -10px);
+}
+.content {
+    font-weight: 800;
+    font-size: var(--small);
+}
+.rectangel {
+    width: 100%;
+    height: 10%;
+}
+.atas {
+    border-radius: 10px 10px 0 0;
+}
+.bawah {
+    border-radius: 0 0 10px 10px;
+}
+.cls11{
+    background-color: #7BD3EA;
+    
+}
+.cls12{
+    background-color: #FFC5C5;   
+}
+.section3 {
+    margin: 0 auto;
+    width: 85%;
+    height: 25vh;
+    padding: 0 30px;
+    background-color: var(--dark);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+
+    border-radius: 5px 5px 0 0;
+    border-top: 2px solid black;
+}
+.section3 p {
+    color: white;
+    font-size: 14px;
+}
+.info1 {
+    margin: auto 0;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.info1 span {
+    margin-right: 8px;
+    color: var(--light-dark);
+}
+.info2 {
+    position: relative;
+    padding-bottom: 15px;
+}
+.penting {
+    text-align: right;
+}
+.power {
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width : 768px) {
+    .opening {
+        padding: 10px;
+        width: 80%;
+    }
+    .section2 {
+        height: 80vh;
+    }
+    .section3{
+        flex-direction: column;
+    }
+    .info1 {
+        height: 50%;
+        width: 100%;
+        flex-direction: row;
+    }
+}
+@media screen and (max-width : 576px) {
+    .section2 {
+        height: 100%;
+        padding: 40px 0;
+    }
+    .box {
+        padding-top: 20px;
+        gap: 40px;
+    }
+    .section3 {
+        height: 35vh;
+        flex-direction: column;
+    }
+    .info1 {
+        padding-top: 20px;
+    }
+    .info2 {
+        width: 90%;
+    }
+}
